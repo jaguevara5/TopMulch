@@ -40,8 +40,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'smtp.ipage.com';  // Specify main and backup SMTP servers
-	$mail->SMTPAuth = true;                               // Enable SMTP authentication
+	$mail->Host = 'ip-172-31-42-29.us-east-2.compute.internal';  // Specify main and backup SMTP servers
+	$mail->SMTPAuth = false;                               // Enable SMTP authentication
 	$mail->Username = 'email@texastopmulch.com';                 // SMTP username
 	$mail->Password = 'JorgeCamp0s0!';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
