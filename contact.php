@@ -94,10 +94,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			</ul>
 		</div>
 		<header class="clearfix">
-			<a href="home.html" class="logo"><img src="img/tmlogo.png" alt="Top Mulch Logo" /></a>
+			<a href="index.html" class="logo"><img src="img/tmlogo.png" alt="Top Mulch Logo" /></a>
 			<nav>
 				<ul>
-					<li><a href="home.html" >HOME</a></li><li>
+					<li><a href="index.html" >HOME</a></li><li>
 					<a href="products.html">PRODUCTS</a></li><li>
 					<a href="price.html">PRICE</a></li><li>
 					<a class="selected" href="contact.php">CONTACT</a></li>
@@ -164,7 +164,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			</ul>
 			<div class="footer-nav">
 				<ul>
-					<li><a href="home.html" >Home</a></li>
+					<li><a href="index.html" >Home</a></li>
 					<li><a href="products.html">Products</a></li>
 					<li><a href="price.html">Price</a></li>
 					<li><a href="contact.php">Contact</a></li>
