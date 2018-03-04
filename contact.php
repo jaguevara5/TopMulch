@@ -12,23 +12,46 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 	if($_POST["address"] != "") {
 		echo "Bad form input";
 		exit;
-	}
+}
 	
-	require("inc/phpmailer/PHPMailerAutoload.php");
+// Create the email and send the message
+$to = 'topmulch11@gmail.com'; 
+$email_subject = "Website Contact Form:  $name";
+$email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nPhone: $phone\n\nMessage:\n$message";
+$headers = "From: noreply@yourdomain.com\n";
+$headers .= "Reply-To: $email_address";	
+mail($to,$email_subject,$email_body,$headers);
+return true;	
+
+// if($_SERVER["REQUEST_METHOD"] == "POST") {
+// 	$name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
+// 	$email = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
+// 	$message = trim(filter_input(INPUT_POST, "message", FILTER_SANITIZE_SPECIAL_CHARS));
+
+// 	if ($name == "" || $email == "" || $message == "" ) {
+// 		echo "Please fill in the required fields";
+// 		exit;
+// 	}
+// 	if($_POST["address"] != "") {
+// 		echo "Bad form input";
+// 		exit;
+// 	}
+	
+// 	require("inc/phpmailer/PHPMailerAutoload.php");
 
 	
-	$mail = new PHPMailer;
+// 	$mail = new PHPMailer;
 	
-	if (!$mail->ValidateAddress($email)) {
-		echo "Invalid Email Address";
-		exit;
-	}
+// 	if (!$mail->ValidateAddress($email)) {
+// 		echo "Invalid Email Address";
+// 		exit;
+// 	}
 	
 	
-	$email_body = "";
-	$email_body .= "Name " . $name . "\n";
-	$email_body .= "Email " . $email . "\n";
-	$email_body .= "Message " . $message . "\n";
+	// $email_body = "";
+	// $email_body .= "Name " . $name . "\n";
+	// $email_body .= "Email " . $email . "\n";
+	// $email_body .= "Message " . $message . "\n";
 
 
 	//$mail->setFrom($email, $name);
@@ -39,31 +62,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
-	$mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'ip-172-31-42-29.us-east-2.compute.internal';  // Specify main and backup SMTP servers
-	$mail->SMTPAuth = false;                               // Enable SMTP authentication
-	$mail->Username = 'email@texastopmulch.com';                 // SMTP username
-	$mail->Password = 'JorgeCamp0s0!';                           // SMTP password
-	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-	$mail->Port = 587;                                    // TCP port to connect to
+// 	$mail->isSMTP();                                      // Set mailer to use SMTP
+// 	$mail->Host = 'ip-172-31-42-29.us-east-2.compute.internal';  // Specify main and backup SMTP servers
+// 	$mail->SMTPAuth = false;                               // Enable SMTP authentication
+// 	$mail->Username = 'email@texastopmulch.com';                 // SMTP username
+// 	$mail->Password = 'JorgeCamp0s0!';                           // SMTP password
+// 	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+// 	$mail->Port = 587;                                    // TCP port to connect to
 
-	$mail->setFrom('email@texastopmulch.com', 'Top Mulch Mailer');
-	$mail->AddReplyTo('email@texastopmulch.com', 'Mailer');
-	$mail->addAddress('top.mulch11@gmail.com', 'Top Mulch');     // Add a recipient
-    // Optional name
-	$mail->isHTML(false);                                  // Set email format to HTML
+// 	$mail->setFrom('email@texastopmulch.com', 'Top Mulch Mailer');
+// 	$mail->AddReplyTo('email@texastopmulch.com', 'Mailer');
+// 	$mail->addAddress('top.mulch11@gmail.com', 'Top Mulch');     // Add a recipient
+//     // Optional name
+// 	$mail->isHTML(false);                                  // Set email format to HTML
 
-	$mail->Subject = 'Message from Top Mulch Website -> ' . $name;
-	$mail->Body    = $email_body;
+// 	$mail->Subject = 'Message from Top Mulch Website -> ' . $name;
+// 	$mail->Body    = $email_body;
 
-	if(!$mail->send()) {
-		echo 'Message could not be sent.';
-		echo 'Mailer Error: ' . $mail->ErrorInfo;
-		exit;
-	}
+// 	if(!$mail->send()) {
+// 		echo 'Message could not be sent.';
+// 		echo 'Mailer Error: ' . $mail->ErrorInfo;
+// 		exit;
+// 	}
 
-	header("location:contact.php?status=thanks");
-}
+// 	header("location:contact.php?status=thanks");
+// }
 
 ?>
 
